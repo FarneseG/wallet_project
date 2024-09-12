@@ -1,0 +1,322 @@
+
+/* Estilos para el formulario */
+#form-book {
+    max-width: 400px;
+    margin: 130px auto 0 auto;
+    padding: 10px;
+    background-color: #3ee98b;
+    color: black;
+    border: 1px solid #ccc;
+    
+    border-radius: 25px;
+    -webkit-box-shadow: 10px 10px 25px 0px rgba(146,53,240,0.75);
+    -moz-box-shadow: 10px 10px 25px 0px rgba(146,53,240,0.75);
+    box-shadow: 10px 10px 25px 0px rgba(146,53,240,0.75);
+    -webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+    
+}
+
+@-webkit-keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+  }
+}
+@keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+  }
+}
+
+/* Estilos para los campos de entrada */
+#input-book {
+    color: black;
+    width: 90%;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 40px;
+}
+
+/* Estilos para el botón */
+.button-BookForm {
+    min-width: 130px;
+    color: black;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    /* display: inline-block; */
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border-radius: 20px;
+    z-index: 0;
+    background: #fff;
+    overflow: hidden;
+    border: 2px solid #57cc99;
+    color: #57cc99;
+    height: 40px;
+}
+
+.button-BookForm:hover {
+    color: #fff;
+}
+
+.button-BookForm:hover:after{
+    width: 100%;
+}
+
+
+
+.button-BookForm:after{
+    content: "";
+    z-index: -1;
+    transition: all 0.3s ease;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(to right,#9235f0, #57cc99);
+    position: absolute;
+}
+
+/* Estilos para el textarea */
+#textarea-BookForm {
+    width: 90%;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    height: 100px;
+    resize: none;
+}
+
+/* Estilos para el foco en los campos de entrada */
+#input-book:focus,
+#textarea-BookForm:focus {
+    border: 1px solid #007bff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para el espacio entre elementos */
+.form-element-spacing {
+    margin-right: 10px;
+}
+
+/* Estilos para el contenedor del botón */
+#button-container {
+    text-align: center;
+}
+
+/* Estilo de las cards */
+
+/* Estilos para la tarjeta de información del libro */
+#book-card{
+    display: flex;
+    /*max-width: 100%;*/
+    /*width: auto;*/
+    /* height: 100%; */
+    justify-content: space-around;
+    flex-wrap: wrap;
+    animation: myAnim 2s ease 0s 1 normal forwards;
+    
+}
+#centered-container {
+    /* display: grid; */
+    display:flex;
+    flex-wrap:wrap;
+    /* grid-template-columns: repeat(4, 1fr); */
+    /* gap: 10px; */
+    justify-content: left;
+    align-items: left;
+    padding: 10px;
+    background-color: #007bff;
+    /* background: linear-gradient(to bottom, #16235e 0%, #51fc72 100%); */
+}
+#centered-container .book-card{
+    height: auto;
+}
+
+@keyframes myAnim {
+	0% {
+		transform: scale(0.5);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+
+
+#book-info {
+    /* width: auto; */
+    /* margin: 30px 5px; */
+    /* overflow: auto; */
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+        -radius: 30px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* padding: 20px;
+    margin: auto; */
+}
+.book-info h1{
+    font-size: 2em;
+}
+
+/* Estilos para el título del libro */
+#titulo-BookForm {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+}
+
+/* Estilos para la image y medidas de la misma img */
+#containerImg-BookForm{
+    max-width: 500px;
+    height: auto;
+    margin-top: 10px;
+}
+
+/* Estilos para los párrafos de descripción */
+#textdesc-BookForm {
+    font-size: 16px;
+    color: #666;
+    margin: 10px 0;
+}
+
+/* Espaciado entre párrafos */
+#book-info p {
+    /* white-space:nowrap; */
+    margin: 10px 10px;
+    /* overflow: hidden;
+    text-overflow: ellipsis; */
+}
+
+
+/* contramedida del momento para botones de eliminar y editar */
+
+#btnEditar-BookForm, #btnEliminar-BookForm {
+    min-width: 100px;
+    margin: 0 5px 0 5px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    /* display: inline-block; */
+    outline: none;
+    border-radius: 20px;
+    z-index: 0;
+    background: #fff;
+    overflow: hidden;
+    border: 2px solid #3c3c3c;
+    color: #57cc99;
+    height: 40px;
+}
+
+#btnEditar-BookForm:hover, #btnEliminar-BookForm:hover {
+    color: #fff;
+}
+
+#btnEditar-BookForm:hover:after, #btnEliminar-BookForm:hover:after{
+    width: 100%;
+}
+
+#btnEditar-BookForm:after, #btnEliminar-BookForm:after{
+    content: "";
+    z-index: -1;
+    transition: all 0.3s ease;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(to right,#9235f0, #f76e5c);
+    position: absolute;
+}
+#image-container {
+    max-height: 400px;
+    display: flex;
+    justify-content: center;
+    background-color: beige;
+    border-radius: 1em;
+    box-sizing: border-box;
+    overflow:hidden;
+    padding: 10px;
+    /* height: auto; */
+    margin: 5px;
+  }
+  
+  #book-image {
+    width:auto;
+    /* border-radius: 1em; */
+    display: block;
+    height: 400px;
+
+    /* margin: 5%; */
+    /*object-fit: cover;*/
+  }
+  .book-info i {
+    font-weight: bolder;
+  }
+  #book-card-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 20px;
+  }
+  #book-card-header .button-BookForm{
+    min-width: 130px;
+    
+    color: black;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    outline: none;
+    border-radius: 20px;
+    z-index: 0;
+    background: #fff;
+    overflow: hidden;
+    border: 2px solid #57cc99;
+    color: #57cc99;
+    height: 20px;
+  }
+  /* #btnEditar-BookForm {
+    min-width: 130px;
+    color: black;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    outline: none;
+    border-radius: 20px;
+    z-index: 0;
+    background: #fff;
+    overflow: hidden;
+    border: 2px solid #57cc99;
+    color: #57cc99;
+    height: 100px;
+  } */

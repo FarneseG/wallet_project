@@ -14,9 +14,12 @@ import smartContractRecord from "../smartContract/record.json";
 import WalletInfo from "../walletInfo/walletInfo";
 // import Login from "../login/Login"
 import { Outlet, Link } from "react-router-dom";
+import booksSmartContract from "../../smartContract/booksSmartContract.json";
+import { useAuth } from "../../context/AuthContext";
 
 function Menu() {
     const [web3, setWeb3] = useState(null);
+    const { logout } = useAuth();
     const [account, setAccount] = useState(null);
     const [balance, setBalance] = useState(null);
     const [contract, setContract] = useState(null);
@@ -72,16 +75,16 @@ function Menu() {
                 localStorage.setItem("walletConnected", "true");
 
                 const contractInstance = new web3Instance.eth.Contract(
-                    smartContractRecord,
-                    smartContractRecord &&
-                        "0x34D44DBc2c73B0eCb4bC738bfB850f92AaB89ae2"
+                    booksSmartContract,
+                    booksSmartContract &&
+                        "0x7c71c73414121e6343c61e3bd6fcd6D39a89ABa7"
                 ); //Create an instance
                 setContract(contractInstance);
                 setTimeout(() => {
                     localStorage.setItem("walletConnected", "false");
                 }, 24 * 60 * 60 * 1000);
             } catch (error) {
-                console.log(error);
+                //console.log(error);
                 MySwal.fire({
                     icon: "error",
                     title: "Oops",
@@ -133,17 +136,17 @@ function Menu() {
                         <Link to="/">
                             <li className="logo-empresa">
                                 <img
-                                    src={require("../../img/blockchain.png")}
+                                    src={require("../../img/logo3.png")}
                                     alt="logo"
                                 />
-                                <label id="brand-name">Blockchain</label>
+                                <label id="brand-name">Bookchain</label>
                             </li>
                         </Link>
                     </div>
 
-                    <div className="search-contenedor">
+                    {/* <div className="search-contenedor">
                         <SearchBar />
-                    </div>
+                    </div> */}
 
                     <div className="menu-contenedor">
                         <>
@@ -151,7 +154,7 @@ function Menu() {
                                 <>
                                     <li>
                                         <Link
-                                            to="/ProductDetail"
+                                            to="/"
                                             className="navegador-item"
                                         >
                                             <img
@@ -162,7 +165,6 @@ function Menu() {
                                     </li>
                                     <li>
                                         <Link
-
                                             className="navegador-item"
                                             onClick={toggleModal}
                                         >
@@ -170,10 +172,9 @@ function Menu() {
                                                 src={require("../../icons/heart.png")}
                                                 className="menu-icon"
                                             />
-                                            
                                         </Link>
                                     </li>
-                                    <li>
+                                    {/* <li>
                                         <Link
                                             to="/Cart"
                                             className="navegador-item"
@@ -183,14 +184,29 @@ function Menu() {
                                                 className="menu-icon"
                                             />
                                         </Link>
-                                    </li>
+                                    </li> */}
                                     <li>
                                         <Link
-                                            to="/Registrar"
+                                            to={"/books"}
                                             className="navegador-item"
                                         >
                                             <img
-                                                src={require("../../icons/bell.png")}
+                                                src={require("../../icons/user.png")}
+                                                alt=""
+                                                className="menu-icon"
+                                            />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="/"
+                                            onClick={() => {
+                                                logout();
+                                            }}
+                                            className="navegador-item"
+                                        >
+                                            <img
+                                                src={require("../../icons/logout.png.png")}
                                                 className="menu-icon"
                                             />
                                         </Link>
@@ -228,16 +244,22 @@ function Menu() {
                 </div>
             </nav>
             {isModalOpen && (
-                                            <div className="modal">
-                                                <div className="modal-content">
-                                                    <span className="close" onClick={toggleModal}>&times;</span>
-                                                    <WalletInfo account={account} balance={balance} contract={contract} />
-                                                </div>
-                                            </div>
-                                            )}
+                <div className="modal">
+                    <div className="modal-content">
+                        <span className="close" onClick={toggleModal}>
+                            &times;
+                        </span>
+                        <WalletInfo
+                            account={account}
+                            balance={balance}
+                            contract={contract}
+                        />
+                    </div>
+                </div>
+            )}
             {/* <WalletInfo account={account} balance={balance} contract={contract} /> */}
             <Outlet />
-            <SideMenu />
+            {/* <SideMenu /> */}
         </>
     );
 }
